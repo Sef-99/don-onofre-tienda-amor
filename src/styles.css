@@ -64,3 +64,35 @@
 .fa-beat-hover:not(:hover) {
   animation: none;
 }
+
+@media (min-width: 768px) {
+  .text p {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .text img {
+    margin-top: 5px;
+    height: 60%;
+  }
+}
+
+@media (max-width: 1025px) {
+  .padding-box {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 1441px) {
+  .text p {
+    font-size: 15px;
+  }
+
+  .text img {
+    height: 80%;
+  }
+}
+
+p {
+  text-align: justify;
+}
