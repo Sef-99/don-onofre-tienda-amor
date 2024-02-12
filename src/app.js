@@ -13,6 +13,10 @@ function agregarProducto(numeroId) {
   }
 
   cambiarBoton(producto, numeroId, "eliminar");
+  document.getElementById("floatingAlert").classList.remove("hidden");
+  setTimeout(function () {
+    document.getElementById("floatingAlert").classList.add("hidden");
+  }, 2500);
 }
 
 function eliminarProducto(numeroId) {
