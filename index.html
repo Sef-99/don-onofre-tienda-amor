@@ -9,7 +9,7 @@
     <meta name="keywords" content="tailwind, tailwindcss, tailwind css" />
 
     <link rel="stylesheet" href="src/output.css" />
-    <link rel="icon" type="image/x-icon" href="/img/4553-bigbouquet.png" />
+    <link rel="icon" type="image/x-icon" href="img/4553-bigbouquet.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
       rel="stylesheet"
@@ -70,7 +70,7 @@
 
         <div class="order-1 md:order-2">
           <a
-            class="flex text-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
+            class="flex text-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl hidden md:flex"
             href="#"
           >
             <svg
@@ -89,7 +89,7 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
-          <a class="inline-block no-underline hover:text-black" href="#">
+          <a class="inline-block no-underline pl-20 hover:text-black" href="#">
             <svg
               class="fill-current hover:text-black"
               xmlns="http://www.w3.org/2000/svg"
@@ -344,136 +344,136 @@
           <p class="pt-1 text-gray-900" id="precio-producto-1">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-2">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-2">Valentin</p>
+            <button onclick="agregarProducto(2)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-2">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 2</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-3">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-3">Valentin 2</p>
+            <button onclick="agregarProducto(3)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-3">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 3</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-4">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-4">Valentin 3</p>
+            <button onclick="agregarProducto(4)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-4">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 4</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-5">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-5">Valentin 4</p>
+            <button onclick="agregarProducto(5)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-5">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 5</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-6">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-6">Valentin 5</p>
+            <button onclick="agregarProducto(6)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-6">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 6</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-7">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-7">Valentin 6</p>
+            <button onclick="agregarProducto(7)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-7">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 7</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-8">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-8">Valentin 7</p>
+            <button onclick="agregarProducto(8)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-8">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-          <a href="#">
-            <img
-              class="hover:grow hover:shadow-lg rounded-full"
-              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-            />
-            <div class="pt-3 flex items-center justify-between">
-              <p class="">Valentin 7</p>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-9">
+          <img
+            class="hover:grow hover:shadow-lg rounded-full"
+            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+          />
+          <div class="pt-3 flex items-center justify-between">
+            <p class="" id="nombre-producto-9">Valentin 8</p>
+            <button onclick="agregarProducto(9)">
               <i class="fa-solid fa-plus fa-lg"></i>
-            </div>
-            <p class="pt-1 text-gray-900">₲75.000</p>
-          </a>
+            </button>
+          </div>
+          <p class="pt-1 text-gray-900" id="precio-producto-9">₲75.000</p>
         </div>
       </div>
     </section>
 
     <section class="bg-white py-12">
-      <div class="container px-6 mx-auto">
+      <div class="container px-6 mx-auto mb-5">
         <a
           href="#"
-          class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-8"
+          class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-16"
           >Conoce a Don Onofre</a
         >
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 h-120 md:h-80 pt-3">
-          <div class="h-120 md:h-80 flex">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-3 h-120 md:h-60 pt-3">
+          <div class="h-120 md:h-80 flex text">
             <img
               src="img/don-Onofre.jpg"
               class="flex h-full max-w-full rounded-full object-center mx-auto shadow-lg"
               alt="Don Onofre"
             />
           </div>
-          <div class="col-span-1 md:col-span-4">
+          <div class="col-span-1 md:col-span-4 mt-16 md:mt-6 text">
             <p>
               Don Onofre, un hombre con una pasión innata por el amor y las
               historias románticas, siempre se destacó en su pequeño pueblo como
@@ -508,11 +508,11 @@
                 todas sus formas durante la temporada de San Valentín y más
                 allá.
               </p>
-              <p>© 2024 Enrique Sánchez</p>
+              <p class="mb-6">© 2024 Enrique Sánchez</p>
             </div>
           </div>
           <div
-            class="flex w-full lg:w-1/6 lg:justify-end lg:text-right mt-6 md:mt-0"
+            class="pl-40 padding-box flex w-full lg:w-1/6 lg:justify-end lg:text-right mt-6 md:mt-0"
           >
             <div class="px-3 md:px-0">
               <h3 class="text-left font-bold text-gray-900">Social</h3>
