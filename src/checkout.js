@@ -1,3 +1,6 @@
+const PATH_API = "https://staging.adamspay.com/api/v1";
+const API_KEY = "ap-174d85421e89cba68d444271";
+
 function createProductHTML(
   productoId,
   nombreProducto,
@@ -6,8 +9,8 @@ function createProductHTML(
   imgSrc
 ) {
   return `
-    <div id="producto-${productoId}" class="justify-start mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-        <img src="${imgSrc}" alt="product-image" class="w-full rounded-full sm:w-40">
+    <div id="producto-${productoId}" class="justify-start mb-6 rounded-lg bg-white p-6 shadow-md border sm:flex xl:flex sm:justify-start"> 
+        <img class=" rounded-full sm:w-40" src="${imgSrc}" alt="product-image">
         <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
             <div class="mt-5 sm:mt-0">
                 <h2 id="nombre-producto-${productoId}" class="text-lg font-bold text-gray-900">${nombreProducto}</h2>
@@ -95,18 +98,23 @@ function actualizarPrecioTotal() {
   if (localStorage.length !== 0) {
     const carrito = localStorage.getItem("carrito");
     const carritoParsed = JSON.parse(carrito);
-    let precioTotal = 0;
-    for (const productoId in carritoParsed) {
-      const productoCarrito = carritoParsed[productoId];
-      const precioMultiplicado =
-        productoCarrito.precio * productoCarrito.cantidadProducto;
-      precioTotal += precioMultiplicado;
-    }
+    let precioTotal = calcularPrecioTotal(carritoParsed);
     console.log(precioTotal);
     const precioElement = document.getElementById("precioTotal");
     console.log(precioElement);
     precioElement.innerHTML = `₲ ${precioTotal}`;
   }
+}
+
+function calcularPrecioTotal(carritoParsed) {
+  let precioTotal = 0;
+  for (const productoId in carritoParsed) {
+    const productoCarrito = carritoParsed[productoId];
+    const precioMultiplicado =
+      productoCarrito.precio * productoCarrito.cantidadProducto;
+    precioTotal += precioMultiplicado;
+  }
+  return precioTotal;
 }
 
 function agregarEventListenerConfirm() {
@@ -123,6 +131,52 @@ function agregarEventListenerConfirm() {
 function vaciarLista() {
   const parentElement = document.getElementById("listadoItemsSubtotal");
   parentElement.innerHTML = "";
+}
+
+function crearDeuda() {
+  const carrito = localStorage.getItem("carrito");
+  const carritoParsed = JSON.parse(carrito);
+  const deudaRazon = formatearRazon(carritoParsed);
+  const precioTotal = calcularPrecioTotal(carritoParsed);
+  console.log(deudaRazon);
+  console.log(precioTotal);
+  const requestBody = {
+    debt: {
+      amount: {
+        currency: "PYG",
+        value: precioTotal,
+      },
+      label: deudaRazon,
+      validPeriod: {
+        start: "2024-01-07T15:46:23+0000",
+        end: "2025-12-07T15:46:23+0000",
+      },
+    },
+  };
+  const headers = {
+    apiKey: API_KEY,
+    "Content-Type": "application/json",
+  };
+  axios
+    .post(`${PATH_API}/debts`, requestBody, { headers: headers })
+    .then(function (response) {
+      console.log(response);
+      localStorage.removeItem("carrito");
+      listarItemsPrecios();
+      actualizarPrecioTotal();
+      window.location.replace(response.data.debt.payUrl);
+    });
+}
+
+function formatearRazon(carritoParsed) {
+  let nombreDeuda = "";
+
+  for (const productoId in carritoParsed) {
+    const item = carritoParsed[productoId];
+    nombreDeuda += item.nombre + " - ";
+  }
+  nombreDeuda = nombreDeuda.slice(0, -3);
+  return nombreDeuda;
 }
 
 createAndAppendProducts();
