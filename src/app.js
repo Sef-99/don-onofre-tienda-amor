@@ -1,16 +1,16 @@
-function agregarProducto(numeroId) {
-  const cantidadProducto = actualizarProducto(numeroId);
+function agregarProducto(numeroId, accion) {
+  actualizarProducto(numeroId, accion);
   actualizarCantCarrito();
 
-  if (cantidadProducto > 0) {
+  /*if (cantidadProducto > 0) {
     document.getElementById("floatingAlert").classList.remove("hidden");
     setTimeout(function () {
       document.getElementById("floatingAlert").classList.add("hidden");
     }, 2500);
-  }
+  }*/
 }
 
-function actualizarProducto(numeroId) {
+function actualizarProducto(numeroId, accion) {
   const producto = document.getElementById(`producto-${numeroId}`);
   const nombreProducto = producto.querySelector(
     `#nombre-producto-${numeroId}`
@@ -19,13 +19,24 @@ function actualizarProducto(numeroId) {
     `#precio-producto-${numeroId}`
   ).textContent;
   const precio = parseInt(precioTexto.replace(".", "").replace("₲", ""));
-  const cantidadProducto = producto.querySelector(
+  let cantidadProducto = producto.querySelector(
     `#cantidad-producto-${numeroId}`
   ).value;
   const imgSrc = producto.querySelector("img").getAttribute("src");
+  switch (accion) {
+    case "menos":
+      if (cantidadProducto > 0) {
+        cantidadProducto--;
+      }
+      break;
+    case "mas":
+      if (cantidadProducto < 10) {
+        cantidadProducto++;
+      }
+      break;
+  }
 
   guardarProducto(nombreProducto, precio, cantidadProducto, numeroId, imgSrc);
-  return cantidadProducto;
 }
 
 function guardarProducto(
