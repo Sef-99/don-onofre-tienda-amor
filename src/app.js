@@ -1,18 +1,5 @@
 function agregarProducto(numeroId) {
-  const producto = document.getElementById(`producto-${numeroId}`);
-  const nombreProducto = producto.querySelector(
-    `#nombre-producto-${numeroId}`
-  ).textContent;
-  const precioTexto = producto.querySelector(
-    `#precio-producto-${numeroId}`
-  ).textContent;
-  const precio = parseFloat(precioTexto.replace(/[^\d.]/g, "")) * 1000;
-  const cantidadProducto = producto.querySelector(
-    `#cantidad-producto-${numeroId}`
-  ).value;
-  const imgSrc = producto.querySelector("img").getAttribute("src");
-
-  guardarProducto(nombreProducto, precio, cantidadProducto, numeroId, imgSrc);
+  const cantidadProducto = actualizarProducto(numeroId);
   actualizarCantCarrito();
 
   if (cantidadProducto > 0) {
@@ -21,6 +8,24 @@ function agregarProducto(numeroId) {
       document.getElementById("floatingAlert").classList.add("hidden");
     }, 2500);
   }
+}
+
+function actualizarProducto(numeroId) {
+  const producto = document.getElementById(`producto-${numeroId}`);
+  const nombreProducto = producto.querySelector(
+    `#nombre-producto-${numeroId}`
+  ).textContent;
+  const precioTexto = producto.querySelector(
+    `#precio-producto-${numeroId}`
+  ).textContent;
+  const precio = parseInt(precioTexto.replace(".", "").replace("₲", ""));
+  const cantidadProducto = producto.querySelector(
+    `#cantidad-producto-${numeroId}`
+  ).value;
+  const imgSrc = producto.querySelector("img").getAttribute("src");
+
+  guardarProducto(nombreProducto, precio, cantidadProducto, numeroId, imgSrc);
+  return cantidadProducto;
 }
 
 function guardarProducto(
@@ -102,7 +107,3 @@ function agregarEventListeners() {
     });
   });
 }
-
-actualizarCantidades();
-actualizarCantCarrito();
-agregarEventListeners();

@@ -1,0 +1,3 @@
+actualizarCantidades();
+actualizarCantCarrito();
+agregarEventListeners();
