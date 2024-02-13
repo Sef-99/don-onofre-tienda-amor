@@ -515,6 +515,45 @@
       <span>Su producto ha sido agregado al carrito!</span>
     </div>
 
+    <div
+      class="group fixed bottom-0 right-0 p-5 flex items-end justify-end w-40 h-40"
+    >
+      <div
+        class="text-white shadow-xl flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-pink-200 to-pink-500 z-50 lg:w-24 lg:h-24"
+      >
+        <div
+          tabindex="0"
+          role="button"
+          class="btn btn-ghost btn-circle flex items-center justify-center relative right-[2px]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="file: h-10 w-10"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            />
+          </svg>
+          <div
+            class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 flex items-center justify-center h-6 w-6 bg-red-500 text-white rounded-full"
+          >
+            <p class="text-xs" id="carritoCantidad"></p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-[100px] group-hover:-translate-y-7 flex p-2 hover:p-3 bg-pink-300 scale-100 hover:bg-pink-400 text-white"
+      >
+        <p>Checkout</p>
+      </div>
+    </div>
+
     <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
       <div class="container flex px-3 py-8">
         <div class="w-full mx-auto flex flex-wrap">

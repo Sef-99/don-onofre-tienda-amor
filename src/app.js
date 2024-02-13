@@ -13,6 +13,7 @@ function agregarProducto(numeroId) {
   }
 
   cambiarBoton(producto, numeroId, "eliminar");
+  actualizarCantCarrito();
   document.getElementById("floatingAlert").classList.remove("hidden");
   setTimeout(function () {
     document.getElementById("floatingAlert").classList.add("hidden");
@@ -27,6 +28,7 @@ function eliminarProducto(numeroId) {
   localStorage.removeItem(nombreProducto);
 
   cambiarBoton(producto, numeroId, "agregar");
+  actualizarCantCarrito();
 }
 
 function cambiarBoton(producto, numeroId, accion) {
@@ -73,4 +75,10 @@ function guardarLocStorObjeto() {
   return localStorageItems;
 }
 
+function actualizarCantCarrito() {
+  const cantCarritoElement = document.getElementById("carritoCantidad");
+  cantCarritoElement.innerHTML = localStorage.length++;
+}
+
 actualizarIconos();
+actualizarCantCarrito();
