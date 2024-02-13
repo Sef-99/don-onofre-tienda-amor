@@ -24,7 +24,7 @@
   <body
     class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal"
   >
-    <nav id="header" class="w-full z-30 top-0 py-1 bg-pink-200 shadow-lg">
+    <nav id="header" class="w-full z-30 top-0 py-1 bg-pink-300 shadow-lg">
       <div
         class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3"
       >
@@ -71,7 +71,7 @@
         <div class="order-1 md:order-2">
           <a
             class="text-center tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl hidden md:flex"
-            href="#"
+            href="index.html"
           >
             <svg
               class="fill-current text-gray-800 mr-2"
@@ -337,9 +337,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-1">Chocolates y Rosas</p>
-            <button onclick="agregarProducto(1)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-1"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(1)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-1">₲75.000</p>
         </div>
@@ -351,9 +371,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-2">Valentin</p>
-            <button onclick="agregarProducto(2)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-2"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(2)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-2">₲75.000</p>
         </div>
@@ -365,9 +405,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-3">Valentin 2</p>
-            <button onclick="agregarProducto(3)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-3"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(3)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-3">₲75.000</p>
         </div>
@@ -379,9 +439,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-4">Valentin 3</p>
-            <button onclick="agregarProducto(4)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-4"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(4)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-4">₲75.000</p>
         </div>
@@ -393,9 +473,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-5">Valentin 4</p>
-            <button onclick="agregarProducto(5)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-5"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(5)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-5">₲75.000</p>
         </div>
@@ -407,9 +507,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-6">Valentin 5</p>
-            <button onclick="agregarProducto(6)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-6"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(6)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-6">₲75.000</p>
         </div>
@@ -421,9 +541,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-7">Valentin 6</p>
-            <button onclick="agregarProducto(7)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-7"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(7)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-7">₲75.000</p>
         </div>
@@ -435,9 +575,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-8">Valentin 7</p>
-            <button onclick="agregarProducto(8)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-8"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(8)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-8">₲75.000</p>
         </div>
@@ -449,9 +609,29 @@
           />
           <div class="pt-3 flex items-center justify-between">
             <p class="" id="nombre-producto-9">Valentin 8</p>
-            <button onclick="agregarProducto(9)">
-              <i class="fa-solid fa-plus fa-lg"></i>
-            </button>
+            <div class="flex items-center border-gray-100">
+              <button
+                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                -
+              </button>
+              <input
+                id="cantidad-producto-9"
+                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
+                type="number"
+                value="0"
+                min="0"
+                max="10"
+              />
+              <button
+                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+              >
+                +
+              </button>
+              <button class="pl-1" onclick="agregarProducto(9)">
+                <i class="fa-solid fa-check fa-lg"></i>
+              </button>
+            </div>
           </div>
           <p class="pt-1 text-gray-900" id="precio-producto-9">₲75.000</p>
         </div>
@@ -518,7 +698,8 @@
     <div
       class="group fixed bottom-0 right-0 p-5 flex items-end justify-end w-40 h-40"
     >
-      <div
+      <a
+        href="checkout.html"
         class="text-white shadow-xl flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-pink-200 to-pink-500 z-50 lg:w-24 lg:h-24"
       >
         <div
@@ -546,7 +727,7 @@
             <p class="text-xs" id="carritoCantidad"></p>
           </div>
         </div>
-      </div>
+      </a>
       <div
         class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-[100px] group-hover:-translate-y-7 flex p-2 hover:p-3 bg-pink-300 scale-100 hover:bg-pink-400 text-white"
       >
@@ -613,5 +794,6 @@
       </div>
     </footer>
     <script src="src/app.js"></script>
+    <script src="src/index.js"></script>
   </body>
 </html>
