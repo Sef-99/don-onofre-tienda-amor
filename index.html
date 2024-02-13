@@ -53,14 +53,14 @@
               <li>
                 <a
                   class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                  href="#"
+                  href="index.html"
                   >Tienda</a
                 >
               </li>
               <li>
                 <a
                   class="inline-block no-underline hover:text-black hover:underline py-2 px-4"
-                  href="#"
+                  href="#acercaDe"
                   >Acerca de</a
                 >
               </li>
@@ -282,7 +282,9 @@
     </div>
 
     <section class="bg-white py-8">
-      <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+      <div
+        class="container mx-auto flex items-center flex-wrap pt-4 pb-12 justify-evenly"
+      >
         <nav id="store" class="w-full z-30 top-0 px-6 py-1">
           <div
             class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3"
@@ -330,310 +332,430 @@
           </div>
         </nav>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-1">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-1">Chocolates y Rosas</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-1"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(1)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex flex-col m-5"
+          id="producto-1"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-1">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-1">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(1, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-1"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(1, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-1">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-2">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-2">Valentin</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-2"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(2)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex flex-col m-5"
+          id="producto-2"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-2">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-2">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(2, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-2"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(2, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-2">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-3">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-3">Valentin 2</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-3"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(3)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-3"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-3">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-3">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(3, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-3"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(3, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-3">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-4">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-4">Valentin 3</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-4"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(4)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-4"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-4">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-4">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(4, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-4"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(4, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-4">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-5">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-5">Valentin 4</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-5"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(5)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-5"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-5">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-5">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(5, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-5"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(5, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-5">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-6">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-6">Valentin 5</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-6"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(6)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-6"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-6">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-6">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(6, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-6"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(6, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-6">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-7">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-7">Valentin 6</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-7"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(7)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-7"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-7">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-7">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(7, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-7"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(7, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-7">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-8">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-8">Valentin 7</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-8"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(8)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-8"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-8">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div class="badge badge-outline" id="precio-producto-8">
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(8, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-8"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(8, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-8">₲75.000</p>
         </div>
 
-        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col" id="producto-9">
-          <img
-            class="hover:grow hover:shadow-lg rounded-full"
-            src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
-          />
-          <div class="pt-3 flex items-center justify-between">
-            <p class="" id="nombre-producto-9">Valentin 8</p>
-            <div class="flex items-center border-gray-100">
-              <button
-                class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                -
-              </button>
-              <input
-                id="cantidad-producto-9"
-                class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none"
-                type="number"
-                value="0"
-                min="0"
-                max="10"
-              />
-              <button
-                class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
-              >
-                +
-              </button>
-              <button class="pl-1" onclick="agregarProducto(9)">
-                <i class="fa-solid fa-check fa-lg"></i>
-              </button>
+        <div
+          class="card card-compact bg-pink-200 shadow-xl w-full md:w-1/2 xl:w-1/4 flex-col m-5"
+          id="producto-9"
+        >
+          <figure>
+            <img
+              class="hover:grow hover:shadow-lg"
+              src="https://asset.bloomnation.com/c_pad,d_vendor:global:catalog:product:image.png,f_auto,fl_preserve_transparency,q_auto/v1705047888/vendor/5116/catalog/product/2/0/20200201075106_file_5e35d6aa412d9_5e35d7916c792.jpg"
+            />
+          </figure>
+          <div class="card-body">
+            <div class="items-center justify-between">
+              <h3 class="card-title pb-3" id="nombre-producto-9">
+                Chocolates y Rosas
+              </h3>
+              <div class="card-actions justify-end items-center">
+                <div
+                  class="badge badge-outline text-gray-600"
+                  id="precio-producto-9"
+                >
+                  ₲75.000
+                </div>
+                <div class="flex items-center border-gray-100">
+                  <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="agregarProducto(9, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-9"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="agregarProducto(9, 'mas')"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <p class="pt-1 text-gray-900" id="precio-producto-9">₲75.000</p>
         </div>
       </div>
     </section>
@@ -641,7 +763,6 @@
     <section class="bg-white py-12">
       <div class="container px-6 mx-auto mb-5">
         <a
-          href="#"
           class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl mb-16"
           >Conoce a Don Onofre</a
         >
@@ -739,7 +860,7 @@
       <div class="container flex px-3 py-8">
         <div class="w-full mx-auto flex flex-wrap">
           <div class="flex w-full lg:w-5/6">
-            <div class="px-3 md:px-0">
+            <div id="acercaDe" class="px-3 md:px-0">
               <h3 class="font-bold text-gray-900">Acerca de</h3>
               <p class="py-4">
                 ¡Bienvenidos al Jardín del Amor de Don Onofre, donde florecen

@@ -16,13 +16,28 @@ function createProductHTML(
                 <h2 id="nombre-producto-${productoId}" class="text-lg font-bold text-gray-900">${nombreProducto}</h2>
             </div>
             <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
-                <div class="flex items-center border-gray-100">
-                    <span class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-pink-300 hover:text-blue-50">-</span>
-                    <input id="cantidad-producto-${productoId}" class="numberInput h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="${cantidadProducto}" min="1">
-                    <span class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50">+</span>
-                    <button class="pl-1 checkButton" onclick="actualizarProducto(${productoId})">
-                      <i class="fa-solid fa-check fa-lg"></i>
-                    </button>
+                <div class="flex items-center border-gray-100 justify-end">
+                    <button
+                    class="subtractBtn cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100"
+                    onclick="actualizarProducto(${productoId}, 'menos')"
+                  >
+                    -
+                  </button>
+                  <input
+                    id="cantidad-producto-${productoId}"
+                    class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
+                    type="number"
+                    min="0"
+                    value="0"
+                    max="10"
+                    readonly
+                  />
+                  <button
+                    class="addBtn cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-pink-300 hover:text-blue-50"
+                    onclick="actualizarProducto(${productoId}, 'mas')"
+                  >
+                    +
+                  </button>
                 </div>
                 <div class="flex items-center space-x-4">
                     <p id="precio-producto-${productoId}" class="text-sm">₲ ${precio} c/u</p>
@@ -118,9 +133,17 @@ function calcularPrecioTotal(carritoParsed) {
 }
 
 function agregarEventListenerConfirm() {
-  const botonCheck = document.querySelectorAll(".checkButton");
-  botonCheck.forEach(function (botonCheck, index) {
-    botonCheck.addEventListener("click", function () {
+  const botonAgregar = document.querySelectorAll(".addBtn");
+  const botonSacar = document.querySelectorAll(".subtractBtn");
+  botonAgregar.forEach(function (botonAgregar, index) {
+    botonAgregar.addEventListener("click", function () {
+      actualizarPrecioTotal();
+      vaciarLista();
+      listarItemsPrecios();
+    });
+  });
+  botonSacar.forEach(function (botonSacar, index) {
+    botonSacar.addEventListener("click", function () {
       actualizarPrecioTotal();
       vaciarLista();
       listarItemsPrecios();
@@ -180,6 +203,7 @@ function formatearRazon(carritoParsed) {
 }
 
 createAndAppendProducts();
+actualizarCantidades();
 agregarEventListeners();
 listarItemsPrecios();
 actualizarPrecioTotal();
