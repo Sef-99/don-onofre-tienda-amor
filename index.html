@@ -19,6 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
 
   <body
@@ -714,6 +715,22 @@
         </div>
       </div>
     </section>
+
+    <dialog id="modalNotificacion" class="modal">
+      <div class="modal-box bg-pink-300 items-center">
+        <h3 class="font-bold text-lg">Sobre su pago:</h3>
+        <p id="infoPago" class="py-4"></p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+            >
+              Cerrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <section class="bg-white py-12">
       <div class="container px-6 mx-auto mb-5">
