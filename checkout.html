@@ -150,7 +150,7 @@
             </div>
             <button
               class="mt-6 w-full rounded-md bg-pink-300 py-1.5 font-medium text-blue-50 hover:bg-pink-400"
-              onclick="crearDeuda()"
+              onclick="crearDeuda();"
             >
               Check out
             </button>
@@ -158,6 +158,35 @@
         </div>
       </div>
     </section>
+
+    <dialog id="modalPago" class="modal">
+      <div class="modal-box bg-pink-300 items-center">
+        <h3 class="font-bold text-lg">Ya casi compra su producto!</h3>
+        <p class="py-4">
+          Para concretar el pago, escanee el siguiente código QR:
+        </p>
+        <div class="flex justify-center">
+          <img id="codigoQr" class="justify-center" />
+        </div>
+        <p class="py-4" 0>O haz click en Pagar para pasar al pago.</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button
+              class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+            >
+              Cerrar
+            </button>
+          </form>
+          <a
+            id="botonRedireccion"
+            class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+          >
+            Pagar
+          </a>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
       <div class="container flex px-3 py-8">

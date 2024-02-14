@@ -183,11 +183,16 @@ function crearDeuda() {
   axios
     .post(`${PATH_API}/debts`, requestBody, { headers: headers })
     .then(function (response) {
-      console.log(response);
+      const payUrl = response.data.debt.payUrl;
       localStorage.removeItem("carrito");
       listarItemsPrecios();
       actualizarPrecioTotal();
-      window.location.replace(response.data.debt.payUrl);
+      const modalPago = document.getElementById("modalPago");
+      document.getElementById("codigoQr").setAttribute("src", `${payUrl}/qr`);
+      document
+        .getElementById("botonRedireccion")
+        .setAttribute("href", `${payUrl}`);
+      modalPago.showModal();
     });
 }
 
