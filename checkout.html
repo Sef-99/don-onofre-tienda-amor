@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body
-    class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal"
+    class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal min-h-screen"
   >
     <nav id="header" class="w-full z-30 top-0 py-1 bg-pink-300 shadow-lg">
       <div
@@ -121,10 +121,29 @@
     </nav>
 
     <section class="bg-white py-8">
-      <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+      <div
+        id="carritoVacioParent"
+        class="flex items-center justify-center h-full"
+      >
+        <div id="carritoVacio" class="container items-center w-3/4">
+          <div class="h-3/4 flex items-center justify-center">
+            <div
+              class="w-full bg-pink-300 p-4 rounded flex flex-col items-center"
+            >
+              <h1 class="text-2xl mb-4">Su carrito está vacío!</h1>
+              <p class="text-center">Para volver a la tienda, presione <a href="index.html" class="inline-block hover:text-black underline">aquí.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="productosCheckout"
+        class="container mx-auto items-center flex-wrap pt-4 pb-12"
+      >
         <nav id="store" class="w-full z-30 top-0 px-6 py-1">
           <div
-            class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3"
+            class="w-full container mx-auto flex flex-wrap items-center justify-start mt-0 px-2 py-3"
           >
             <a
               class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
@@ -150,7 +169,7 @@
             </div>
             <button
               class="mt-6 w-full rounded-md bg-pink-300 py-1.5 font-medium text-blue-50 hover:bg-pink-400"
-              onclick="crearDeuda()"
+              onclick="crearDeuda();"
             >
               Check out
             </button>
@@ -159,7 +178,35 @@
       </div>
     </section>
 
-    <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
+    <dialog id="modalPago" class="modal">
+      <div class="modal-box bg-pink-300 items-center">
+        <h3 class="font-bold text-lg">Ya casi compra su producto!</h3>
+        <p class="py-4">
+          Para concretar el pago, escanee el siguiente código QR:
+        </p>
+        <div class="flex justify-center">
+          <img id="codigoQr" class="justify-center" />
+        </div>
+        <p class="py-4" 0>O haz click en Pagar para pasar al pago.</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+            >
+              Cerrar
+            </button>
+          </form>
+          <a
+            id="botonRedireccion"
+            class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+          >
+            Pagar
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <footer class="container mx-auto bg-white py-8 border-t border-gray-400 sticky top-[100vh]">
       <div class="container flex px-3 py-8">
         <div class="w-full mx-auto flex flex-wrap">
           <div class="flex w-full lg:w-5/6">

@@ -10,7 +10,7 @@ function createProductHTML(
 ) {
   return `
     <div id="producto-${productoId}" class="justify-start mb-6 rounded-lg bg-white p-6 shadow-md border sm:flex xl:flex sm:justify-start"> 
-        <img class=" rounded-full sm:w-40" src="${imgSrc}" alt="product-image">
+        <img class="rounded-full sm:w-40" src="${imgSrc}" alt="product-image">
         <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
             <div class="mt-5 sm:mt-0">
                 <h2 id="nombre-producto-${productoId}" class="text-lg font-bold text-gray-900">${nombreProducto}</h2>
@@ -28,7 +28,7 @@ function createProductHTML(
                     class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
                     type="number"
                     min="0"
-                    value="0"
+                    value="${cantidadProducto}"
                     max="10"
                     readonly
                   />
@@ -53,7 +53,7 @@ function createProductHTML(
 }
 
 function sacarProducto(numeroId) {
-  document.getElementById(`producto-${numeroId}`).outerHTML = "";
+  document.getElementById(`producto-${numeroId}`).remove();
   if (localStorage.length !== 0) {
     const carrito = localStorage.getItem("carrito");
     const carritoParsed = JSON.parse(carrito);
@@ -63,6 +63,9 @@ function sacarProducto(numeroId) {
     actualizarPrecioTotal();
     vaciarLista();
     listarItemsPrecios();
+    if (localStorage.getItem("carrito") === "{}") {
+      elegirContenido();
+    }
   }
 }
 
@@ -70,9 +73,13 @@ function crearTotalDeUnProducto(nombreProducto, precio, cantidadProducto) {
   const precioTotal = parseInt(precio) * parseInt(cantidadProducto);
   return `
   <div class="mb-2 flex justify-between">
-              <p class="text-gray-700">${nombreProducto}</p>
-              <p id="precioTotalIndividual" class="text-gray-700">₲ ${precio} x ${cantidadProducto} = ₲ ${precioTotal}</p>
-            </div>`;
+    <p class="text-gray-700">${nombreProducto}</p>
+    <p id="precioTotalIndividual" class="text-gray-700">
+        <span class="hidden sm:inline-block lg:hidden">₲ ${precio} x ${cantidadProducto} =</span>
+        ₲ ${precioTotal}
+    </p>
+</div>
+`;
 }
 
 function listarItemsPrecios() {
@@ -183,11 +190,16 @@ function crearDeuda() {
   axios
     .post(`${PATH_API}/debts`, requestBody, { headers: headers })
     .then(function (response) {
-      console.log(response);
+      const payUrl = response.data.debt.payUrl;
       localStorage.removeItem("carrito");
       listarItemsPrecios();
       actualizarPrecioTotal();
-      window.location.replace(response.data.debt.payUrl);
+      const modalPago = document.getElementById("modalPago");
+      document.getElementById("codigoQr").setAttribute("src", `${payUrl}/qr`);
+      document
+        .getElementById("botonRedireccion")
+        .setAttribute("href", `${payUrl}`);
+      modalPago.showModal();
     });
 }
 
@@ -202,9 +214,23 @@ function formatearRazon(carritoParsed) {
   return nombreDeuda;
 }
 
-createAndAppendProducts();
-actualizarCantidades();
-agregarEventListeners();
-listarItemsPrecios();
-actualizarPrecioTotal();
-agregarEventListenerConfirm();
+function elegirContenido() {
+  console.log(localStorage.getItem("carrito"));
+  if (localStorage.length === 0 || localStorage.getItem("carrito") === "{}") {
+    document.getElementById("productosCheckout").classList.add("hidden");
+    document.getElementById("carritoVacioParent").classList.remove("hidden");
+    document.getElementById("carritoVacio").classList.remove("hidden");
+  } else {
+    document.getElementById("carritoVacioParent").classList.add("hidden");
+    document.getElementById("carritoVacio").classList.add("hidden");
+    document.getElementById("productosCheckout").classList.remove("hidden");
+    createAndAppendProducts();
+    actualizarCantidades();
+    agregarEventListeners();
+    listarItemsPrecios();
+    actualizarPrecioTotal();
+    agregarEventListenerConfirm();
+  }
+}
+
+elegirContenido();
