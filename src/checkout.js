@@ -73,9 +73,13 @@ function crearTotalDeUnProducto(nombreProducto, precio, cantidadProducto) {
   const precioTotal = parseInt(precio) * parseInt(cantidadProducto);
   return `
   <div class="mb-2 flex justify-between">
-              <p class="text-gray-700">${nombreProducto}</p>
-              <p id="precioTotalIndividual" class="text-gray-700">₲ ${precio} x ${cantidadProducto} = ₲ ${precioTotal}</p>
-            </div>`;
+    <p class="text-gray-700">${nombreProducto}</p>
+    <p id="precioTotalIndividual" class="text-gray-700">
+        <span class="hidden sm:inline-block lg:hidden">₲ ${precio} x ${cantidadProducto} =</span>
+        ₲ ${precioTotal}
+    </p>
+</div>
+`;
 }
 
 function listarItemsPrecios() {
