@@ -2073,6 +2073,10 @@ html {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0px;
 }
@@ -2109,6 +2113,10 @@ html {
 
 .top-0 {
   top: 0px;
+}
+
+.top-\[100vh\] {
+  top: 100vh;
 }
 
 .z-10 {
@@ -2328,6 +2336,18 @@ html {
   height: 66.666667%;
 }
 
+.h-1\/3 {
+  height: 33.333333%;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -2382,6 +2402,10 @@ html {
 
 .w-3\/4 {
   width: 75%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .max-w-5xl {
@@ -2787,6 +2811,10 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.align-bottom {
+  vertical-align: bottom;
 }
 
 .text-2xl {
