@@ -28,7 +28,7 @@ function createProductHTML(
                     class="numberInput h-7 w-7 bg-white text-center text-xs outline-none"
                     type="number"
                     min="0"
-                    value="0"
+                    value="${cantidadProducto}"
                     max="10"
                     readonly
                   />
@@ -53,7 +53,7 @@ function createProductHTML(
 }
 
 function sacarProducto(numeroId) {
-  document.getElementById(`producto-${numeroId}`).outerHTML = "";
+  document.getElementById(`producto-${numeroId}`).remove();
   if (localStorage.length !== 0) {
     const carrito = localStorage.getItem("carrito");
     const carritoParsed = JSON.parse(carrito);
@@ -63,6 +63,9 @@ function sacarProducto(numeroId) {
     actualizarPrecioTotal();
     vaciarLista();
     listarItemsPrecios();
+    if (localStorage.getItem("carrito") === "{}") {
+      elegirContenido();
+    }
   }
 }
 
@@ -207,9 +210,23 @@ function formatearRazon(carritoParsed) {
   return nombreDeuda;
 }
 
-createAndAppendProducts();
-actualizarCantidades();
-agregarEventListeners();
-listarItemsPrecios();
-actualizarPrecioTotal();
-agregarEventListenerConfirm();
+function elegirContenido() {
+  console.log(localStorage.getItem("carrito"));
+  if (localStorage.length === 0 || localStorage.getItem("carrito") === "{}") {
+    document.getElementById("productosCheckout").classList.add("hidden");
+    document.getElementById("carritoVacioParent").classList.remove("hidden");
+    document.getElementById("carritoVacio").classList.remove("hidden");
+  } else {
+    document.getElementById("carritoVacioParent").classList.add("hidden");
+    document.getElementById("carritoVacio").classList.add("hidden");
+    document.getElementById("productosCheckout").classList.remove("hidden");
+    createAndAppendProducts();
+    actualizarCantidades();
+    agregarEventListeners();
+    listarItemsPrecios();
+    actualizarPrecioTotal();
+    agregarEventListenerConfirm();
+  }
+}
+
+elegirContenido();

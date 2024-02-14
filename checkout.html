@@ -121,10 +121,29 @@
     </nav>
 
     <section class="bg-white py-8">
-      <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
+      <div
+        id="carritoVacioParent"
+        class="flex items-center justify-center h-screen"
+      >
+        <div id="carritoVacio" class="container items-center w-3/4">
+          <div class="h-3/4 flex items-center justify-center">
+            <div
+              class="w-full bg-pink-300 p-4 rounded flex flex-col items-center"
+            >
+              <h1 class="text-2xl mb-4">Su carrito está vacío!</h1>
+              <p class="text-center">Para volver a la tienda, presione <a href="index.html" class="inline-block hover:text-black underline">aquí.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="productosCheckout"
+        class="container mx-auto items-center flex-wrap pt-4 pb-12 hidden"
+      >
         <nav id="store" class="w-full z-30 top-0 px-6 py-1">
           <div
-            class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3"
+            class="w-full container mx-auto flex flex-wrap items-center justify-start mt-0 px-2 py-3"
           >
             <a
               class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
@@ -171,7 +190,6 @@
         <p class="py-4" 0>O haz click en Pagar para pasar al pago.</p>
         <div class="modal-action">
           <form method="dialog">
-            <!-- if there is a button in form, it will close the modal -->
             <button
               class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
             >

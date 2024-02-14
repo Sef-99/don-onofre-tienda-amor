@@ -1,13 +1,6 @@
 function agregarProducto(numeroId, accion) {
   actualizarProducto(numeroId, accion);
   actualizarCantCarrito();
-
-  /*if (cantidadProducto > 0) {
-    document.getElementById("floatingAlert").classList.remove("hidden");
-    setTimeout(function () {
-      document.getElementById("floatingAlert").classList.add("hidden");
-    }, 2500);
-  }*/
 }
 
 function actualizarProducto(numeroId, accion) {
