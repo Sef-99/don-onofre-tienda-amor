@@ -10,7 +10,7 @@ function createProductHTML(
 ) {
   return `
     <div id="producto-${productoId}" class="justify-start mb-6 rounded-lg bg-white p-6 shadow-md border sm:flex xl:flex sm:justify-start"> 
-        <img class=" rounded-full sm:w-40" src="${imgSrc}" alt="product-image">
+        <img class="rounded-full sm:w-40" src="${imgSrc}" alt="product-image">
         <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
             <div class="mt-5 sm:mt-0">
                 <h2 id="nombre-producto-${productoId}" class="text-lg font-bold text-gray-900">${nombreProducto}</h2>
