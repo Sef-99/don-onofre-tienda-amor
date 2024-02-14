@@ -4,4 +4,18 @@ La página web de Don Onofre ofrece una experiencia de compra segura y convenien
 
 Puedes visitar la pagina web de Don Onofre siguiendo este link: https://sef-99.github.io/don-onofre-tienda-amor/
 
+# Pagina principal
+
 ![alt text](img/tienda-don-onofre.png)
+
+# Checkout
+
+![alt text](img/checkout.png)
+
+# Modal para pagar
+
+![alt text](img/pago.png)
+
+# Notificación de Pago
+
+![alt text](img/notificacion.png)
