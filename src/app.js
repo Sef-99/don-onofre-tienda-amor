@@ -1,3 +1,14 @@
+if (localStorage.getItem("loggedUser") !== null) {
+  const loginElement = document.getElementById("loginout");
+  console.log(loginElement);
+  loginElement.innerHTML = "Cerrar Sesión";
+  loginElement.onclick = logout;
+}
+
+function logout() {
+  localStorage.removeItem("loggedUser");
+}
+
 function agregarProducto(numeroId, accion) {
   actualizarProducto(numeroId, accion);
   actualizarCantCarrito();
