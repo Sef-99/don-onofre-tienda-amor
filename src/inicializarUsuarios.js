@@ -1,16 +1,16 @@
 const listaUsuarios = {
-  admin: {
-    email: "test@test.com",
+  "test@test.com": {
+    username: "admin",
     password: "password",
     role: "admin",
   },
-  user1: {
-    email: "test2@test.com",
+  "test2@test.com": {
+    username: "user1",
     password: "GenericPassword@",
     role: "user",
   },
-  user2: {
-    email: "test3@test.com",
+  "test3@test.com": {
+    username: "user2",
     password: "GenericPassword@",
     role: "user",
   },

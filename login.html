@@ -129,7 +129,7 @@
             </div>
           </div>
           <div class="mt-10">
-            <form action="#">
+            <form>
               <div class="flex flex-col mb-6">
                 <label
                   for="email"
@@ -190,6 +190,16 @@
                     name="password"
                     class="text-sm sm:text-base placeholder-gray-400 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-pink-400 bg-pink-200"
                     placeholder="contraseña" />
+                  <div
+                    class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <span id="eyeIcon" onclick="togglePasswordVisibility()">
+                      <i id="eyeClosed" class="fa-solid fa-eye-slash"></i>
+                      <i
+                        id="eyeOpen"
+                        class="fa-solid fa-eye"
+                        style="display: none"></i>
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -205,8 +215,9 @@
 
               <div class="flex w-full">
                 <button
-                  type="submit"
-                  class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-pink-400 hover:bg-pink-600 rounded py-2 w-full transition duration-150 ease-in">
+                  type="button"
+                  class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-pink-400 hover:bg-pink-600 rounded py-2 w-full transition duration-150 ease-in"
+                  onclick="getInfoUsuario()">
                   <span class="mr-2 uppercase">Ingresar</span>
                   <span>
                     <svg
@@ -304,6 +315,8 @@
         </div>
       </div>
     </footer>
+    <script src="src/inicializarUsuarios.js"></script>
     <script src="src/app.js"></script>
+    <script src="src/login.js"></script>
   </body>
 </html>
