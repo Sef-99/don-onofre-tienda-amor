@@ -216,7 +216,10 @@ function formatearRazon(carritoParsed) {
 
 function elegirContenido() {
   console.log(localStorage.getItem("carrito"));
-  if (localStorage.length === 0 || localStorage.getItem("carrito") === "{}") {
+  if (
+    localStorage.getItem("carrito") === null ||
+    localStorage.getItem("carrito") === "{}"
+  ) {
     document.getElementById("productosCheckout").classList.add("hidden");
     document.getElementById("carritoVacioParent").classList.remove("hidden");
     document.getElementById("carritoVacio").classList.remove("hidden");
@@ -230,6 +233,12 @@ function elegirContenido() {
     listarItemsPrecios();
     actualizarPrecioTotal();
     agregarEventListenerConfirm();
+    if (localStorage.getItem("loggedUser") === null) {
+      const checkoutBtn = document.getElementById("checkoutBtn");
+      checkoutBtn.classList.add("btn-disabled");
+      checkoutBtn.disabled = true;
+      document.getElementById("alertCheckout").classList.remove("hidden");
+    }
   }
 }
 
