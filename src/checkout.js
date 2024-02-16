@@ -272,12 +272,17 @@ function elegirContenido() {
 
 function getDeudasOfUser() {
   const deudas = localStorage.getItem("deudas");
-  const deudasParsed = JSON.parse(deudas);
-  const usuarioActual = localStorage.getItem("loggedUser");
-  const deudasUsuario = deudasParsed[usuarioActual];
-  for (let i in deudasUsuario) {
-    console.log(deudasUsuario[i]);
-    getDetallesDeuda(deudasUsuario[i]);
+  if (deudas !== null) {
+    const deudasParsed = JSON.parse(deudas);
+    const usuarioActual = localStorage.getItem("loggedUser");
+    if (usuarioActual in deudasParsed) {
+      if (deudasUsuario !== null) {
+        for (let i in deudasUsuario) {
+          console.log(deudasUsuario[i]);
+          getDetallesDeuda(deudasUsuario[i]);
+        }
+      }
+    }
   }
 }
 
