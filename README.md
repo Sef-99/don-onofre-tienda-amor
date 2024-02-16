@@ -19,3 +19,15 @@ Puedes visitar la pagina web de Don Onofre siguiendo este link: https://sef-99.g
 # Notificación de Pago
 
 ![alt text](img/notificacion.png)
+
+# Log In
+
+![alt text](img/logIn.png)
+
+# Deudas de un Usuario
+
+![alt text](img/deudasUsuario.png)
+
+# Panel de Control
+
+![alt text](img/panelControl.png)
