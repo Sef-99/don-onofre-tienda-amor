@@ -2159,6 +2159,10 @@ html {
   top: 100vh;
 }
 
+.right-4 {
+  right: 1rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -2291,6 +2295,18 @@ html {
   margin-top: 1.5rem;
 }
 
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.mr-28 {
+  margin-right: 7rem;
+}
+
+.mr-48 {
+  margin-right: 12rem;
+}
+
 .block {
   display: block;
 }
@@ -2389,6 +2405,12 @@ html {
 
 .border-collapse {
   border-collapse: collapse;
+}
+
+.border-spacing-9 {
+  --tw-border-spacing-x: 2.25rem;
+  --tw-border-spacing-y: 2.25rem;
+  border-spacing: var(--tw-border-spacing-x) var(--tw-border-spacing-y);
 }
 
 .-translate-y-1\/2 {
