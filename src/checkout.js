@@ -191,6 +191,9 @@ function crearDeuda() {
     .post(`${PATH_API}/debts`, requestBody, { headers: headers })
     .then(function (response) {
       const payUrl = response.data.debt.payUrl;
+      const usuarioActual = localStorage.getItem("loggedUser");
+      const idDeuda = response.data.debt.docId;
+      guardarEnHistorialDeudas(usuarioActual, idDeuda);
       localStorage.removeItem("carrito");
       listarItemsPrecios();
       actualizarPrecioTotal();
@@ -201,6 +204,24 @@ function crearDeuda() {
         .setAttribute("href", `${payUrl}`);
       modalPago.showModal();
     });
+}
+
+function guardarEnHistorialDeudas(usuarioActual, idDeuda) {
+  if (localStorage.getItem("deudas") === null) {
+    let deudas = {};
+    deudas[usuarioActual] = [idDeuda];
+    const deudaUsuarioStringified = JSON.stringify(deudas);
+    localStorage.setItem("deuda", deudaUsuarioStringified);
+  } else {
+    const deudas = localStorage.getItem("deudas");
+    const deudasParsed = JSON.parse(deudas);
+    const deudasUsuario = deudasParsed[usuarioActual];
+    deudasUsuario.push(idDeuda);
+    deudasParsed[usuarioActual] = deudasUsuario;
+    const stringifiedDeudas = JSON.stringify(deudasParsed);
+    localStorage.setItem("deudas", stringifiedDeudas);
+    console.log(deudasParsed);
+  }
 }
 
 function formatearRazon(carritoParsed) {
