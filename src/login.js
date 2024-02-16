@@ -10,11 +10,13 @@ if (
   console.log(window.location);
   window.location.href = "index.html";
 } else {
-  const loggedUser = localStorage.getItem("loggedUser");
-  const users = localStorage.getItem("users");
-  const usersParsed = JSON.parse(users);
-  if (usersParsed[loggedUser].role === "admin") {
-    document.getElementById("panelAdmin").classList.remove("hidden");
+  if (localStorage.getItem("loggedUser") !== null) {
+    const loggedUser = localStorage.getItem("loggedUser");
+    const users = localStorage.getItem("users");
+    const usersParsed = JSON.parse(users);
+    if (usersParsed[loggedUser].role === "admin") {
+      document.getElementById("panelAdmin").classList.remove("hidden");
+    }
   }
 }
 
@@ -45,12 +47,10 @@ function logInUsuario(email, password) {
   const listaUsuarios = localStorage.getItem("users");
   const listaParsed = JSON.parse(listaUsuarios);
   console.log(listaParsed);
-  if (email in listaParsed) {
-    if (password === listaParsed[email].password) {
-      console.log("xd");
-      localStorage.setItem("loggedUser", email);
-      window.location.href = "index.html";
-    }
+  if (email in listaParsed && password === listaParsed[email].password) {
+    localStorage.setItem("loggedUser", email);
+    window.location.href = "index.html";
   } else {
+    document.getElementById("invalidLogin").showModal();
   }
 }

@@ -119,7 +119,7 @@
             </div>
           </div>
           <div class="mt-10">
-            <form>
+            <form onsubmit="return false;">
               <div class="flex flex-col mb-6">
                 <label
                   for="email"
@@ -215,6 +215,7 @@
 
               <div class="flex w-full">
                 <button
+                  id="loginBtn"
                   type="button"
                   class="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-pink-400 hover:bg-pink-600 rounded py-2 w-full transition duration-150 ease-in"
                   onclick="getInfoUsuario()"
@@ -266,6 +267,22 @@
         </div>
       </div>
     </section>
+
+    <dialog id="invalidLogin" class="modal">
+      <div class="modal-box bg-pink-300 items-center">
+        <h3 class="font-bold text-lg">Error</h3>
+        <p class="py-4">Email o contraseña incorrecta.</p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+            >
+              Cerrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <footer
       class="container mx-auto bg-white py-8 border-t border-gray-400 sticky top-[100vh]"
@@ -330,5 +347,6 @@
     <script src="src/inicializarUsuarios.js"></script>
     <script src="src/app.js"></script>
     <script src="src/login.js"></script>
+    <script src="src/loginEnter.js"></script>
   </body>
 </html>
