@@ -211,13 +211,16 @@ function guardarEnHistorialDeudas(usuarioActual, idDeuda) {
     let deudas = {};
     deudas[usuarioActual] = [idDeuda];
     const deudaUsuarioStringified = JSON.stringify(deudas);
-    localStorage.setItem("deuda", deudaUsuarioStringified);
+    localStorage.setItem("deudas", deudaUsuarioStringified);
   } else {
     const deudas = localStorage.getItem("deudas");
     const deudasParsed = JSON.parse(deudas);
-    const deudasUsuario = deudasParsed[usuarioActual];
-    deudasUsuario.push(idDeuda);
-    deudasParsed[usuarioActual] = deudasUsuario;
+    console.log(deudasParsed[usuarioActual]);
+    if (deudasParsed[usuarioActual] !== undefined) {
+      deudasParsed[usuarioActual].push(idDeuda);
+    } else {
+      deudasParsed[usuarioActual] = [idDeuda];
+    }
     const stringifiedDeudas = JSON.stringify(deudasParsed);
     localStorage.setItem("deudas", stringifiedDeudas);
     console.log(deudasParsed);
