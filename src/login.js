@@ -1,4 +1,8 @@
-if (localStorage.getItem("loggedUser") !== null) {
+if (
+  localStorage.getItem("loggedUser") === null &&
+  window.location.pathname !== "/login.html"
+) {
+  console.log(window.location);
   window.location.href = "index.html";
 }
 
