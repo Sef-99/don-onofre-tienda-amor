@@ -33,3 +33,16 @@ if (deudaId !== null) {
       modalNotificacion.showModal();
     });
 }
+
+if (localStorage.getItem("loggedUser") !== null) {
+  const loggedUser = localStorage.getItem("loggedUser");
+  const users = localStorage.getItem("users");
+  const usersParsed = JSON.parse(users);
+  if (usersParsed[loggedUser].role === "admin") {
+    document.getElementById("adminAlert").classList.remove("hidden");
+  } else {
+    document.getElementById("adminAlert").classList.add("hidden");
+  }
+} else {
+  document.getElementById("adminAlert").classList.add("hidden");
+}

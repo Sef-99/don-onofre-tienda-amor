@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Deudas del Usuario</title>
+    <title>Panel de Administracion</title>
 
     <link rel="stylesheet" href="src/output.css" />
     <link rel="icon" type="image/x-icon" href="img/4553-bigbouquet.png" />
@@ -92,9 +92,8 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
-          <div id="panelAdmin" class="hidden">
+          <div id="panelAdmin" class="">
             <a
-              id="panelAdmin"
               class="rounded-md bg-transparent font-medium text-pink-500 hover:underline"
               href="adminPanel.html"
             >
@@ -149,10 +148,19 @@
 
     <section class="m-10">
       <div
-        class="w-full container mx-auto flex flex-wrap items-center justify-start mt-0 px-2 py-3"
+        class="w-full container mx-auto flex-col flex-wrap items-center justify-start mt-0 px-2 py-3"
       >
         <a
           class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
+        >
+          Panel de Administración
+        </a>
+      </div>
+      <div
+        class="w-full container mx-auto flex-col flex-wrap items-center justify-start mt-0 px-2 py-3"
+      >
+        <a
+          class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-lg"
         >
           Deudas
         </a>
@@ -166,17 +174,17 @@
               <th
                 class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
               >
-                Nombre
+                Creada
               </th>
               <th
                 class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
               >
-                Monto Total
+                ID
               </th>
               <th
                 class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
               >
-                Pagado
+                Concepto
               </th>
               <th
                 class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
@@ -185,13 +193,81 @@
               </th>
               <th
                 class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
-              ></th>
+              >
+                Cobrado
+              </th>
+              <th
+                class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
+              >
+                Valor
+              </th>
+              <th
+                class="p-3 font-bold uppercase bg-pink-300 text-gray-600 border border-gray-300 hidden lg:table-cell"
+              >
+                Transacciones
+              </th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
       </div>
     </section>
+
+    <dialog id="modalTransacciones" class="modal">
+      <div class="modal-box bg-pink-300 items-center max-w-full">
+        <h3 class="font-bold text-lg">
+          Transacciones de deuda id: <span id="deudaId"></span>
+        </h3>
+        <div style="overflow-x: auto">
+          <table class="border-collapse w-full px-2 py-3 min-w-max">
+            <thead>
+              <tr>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  Fecha
+                </th>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  ID
+                </th>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  Concepto
+                </th>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  ID Correlacion
+                </th>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  Estado
+                </th>
+                <th
+                  class="p-3 font-bold uppercase bg-pink-500 text-gray-600 border border-gray-300 hidden lg:table-cell"
+                >
+                  Monto
+                </th>
+              </tr>
+            </thead>
+            <tbody id="transaccionTableBody"></tbody>
+          </table>
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn bg-pink-400 hover:bg-pink-200 text-gray-600 border-gray-700"
+            >
+              Cerrar
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <footer
       class="container mx-auto bg-white py-8 border-t border-gray-400 sticky top-[100vh]"
@@ -256,6 +332,6 @@
     <script src="src/inicializarUsuarios.js"></script>
     <script src="src/app.js"></script>
     <script src="src/login.js"></script>
-    <script src="src/listarDeudasUsuario.js"></script>
+    <script src="src/adminPanel.js"></script>
   </body>
 </html>
