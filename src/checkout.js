@@ -1,5 +1,9 @@
 const PATH_API = "https://staging.adamspay.com/api/v1";
 const API_KEY = "ap-174d85421e89cba68d444271";
+const headers = {
+  apiKey: API_KEY,
+  "Content-Type": "application/json",
+};
 
 function createProductHTML(
   productoId,
@@ -191,6 +195,9 @@ function crearDeuda() {
     .post(`${PATH_API}/debts`, requestBody, { headers: headers })
     .then(function (response) {
       const payUrl = response.data.debt.payUrl;
+      const usuarioActual = localStorage.getItem("loggedUser");
+      const idDeuda = response.data.debt.docId;
+      guardarEnHistorialDeudas(usuarioActual, idDeuda);
       localStorage.removeItem("carrito");
       listarItemsPrecios();
       actualizarPrecioTotal();
@@ -201,6 +208,27 @@ function crearDeuda() {
         .setAttribute("href", `${payUrl}`);
       modalPago.showModal();
     });
+}
+
+function guardarEnHistorialDeudas(usuarioActual, idDeuda) {
+  if (localStorage.getItem("deudas") === null) {
+    let deudas = {};
+    deudas[usuarioActual] = [idDeuda];
+    const deudaUsuarioStringified = JSON.stringify(deudas);
+    localStorage.setItem("deudas", deudaUsuarioStringified);
+  } else {
+    const deudas = localStorage.getItem("deudas");
+    const deudasParsed = JSON.parse(deudas);
+    console.log(deudasParsed[usuarioActual]);
+    if (deudasParsed[usuarioActual] !== undefined) {
+      deudasParsed[usuarioActual].push(idDeuda);
+    } else {
+      deudasParsed[usuarioActual] = [idDeuda];
+    }
+    const stringifiedDeudas = JSON.stringify(deudasParsed);
+    localStorage.setItem("deudas", stringifiedDeudas);
+    console.log(deudasParsed);
+  }
 }
 
 function formatearRazon(carritoParsed) {
@@ -241,5 +269,33 @@ function elegirContenido() {
     }
   }
 }
+
+function getDeudasOfUser() {
+  const deudas = localStorage.getItem("deudas");
+  const deudasParsed = JSON.parse(deudas);
+  const usuarioActual = localStorage.getItem("loggedUser");
+  const deudasUsuario = deudasParsed[usuarioActual];
+  for (let i in deudasUsuario) {
+    console.log(deudasUsuario[i]);
+    getDetallesDeuda(deudasUsuario[i]);
+  }
+}
+
+function getDetallesDeuda(deudaId) {
+  axios
+    .get(`${PATH_API}/debts/${deudaId}`, { headers: headers })
+    .then(function (response) {
+      if (response.data.debt.payStatus.status === "pending") {
+        document
+          .getElementById("deudasPendientesAlert")
+          .classList.remove("hidden");
+        const checkoutBtn = document.getElementById("checkoutBtn");
+        checkoutBtn.classList.add("btn-disabled");
+        checkoutBtn.disabled = true;
+      }
+    });
+}
+
+getDeudasOfUser();
 
 elegirContenido();
