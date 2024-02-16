@@ -20,11 +20,11 @@ function getDetallesDeuda(deudaId) {
   axios
     .get(`${PATH_API}/debts/${deudaId}`, { headers: headers })
     .then(function (response) {
-      construirTabla(response.data.debt);
+      construirTablaDeudas(response.data.debt);
     });
 }
 
-function construirTabla(response) {
+function construirTablaDeudas(response) {
   console.log(response);
   const tableBody = document.getElementById("tableBody");
   const fila = document.createElement("tr");
@@ -40,11 +40,11 @@ function construirTabla(response) {
     "mb-10",
     "lg:mb-0"
   );
-  fila.innerHTML = crearColumnas(response);
+  fila.innerHTML = crearColumnasDeudas(response);
   tableBody.appendChild(fila);
 }
 
-function crearColumnas(response) {
+function crearColumnasDeudas(response) {
   const nombre = response.label;
   const montoTotal = parseInt(response.amount.value);
   const pagado = parseInt(response.amount.paid);
