@@ -276,6 +276,7 @@ function getDeudasOfUser() {
     const deudasParsed = JSON.parse(deudas);
     const usuarioActual = localStorage.getItem("loggedUser");
     if (usuarioActual in deudasParsed) {
+      const deudasUsuario = deudasParsed[usuarioActual];
       if (deudasUsuario !== null) {
         for (let i in deudasUsuario) {
           console.log(deudasUsuario[i]);
