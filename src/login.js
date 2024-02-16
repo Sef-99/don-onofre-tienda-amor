@@ -3,7 +3,7 @@ console.log(window.location.pathname);
 if (
   localStorage.getItem("loggedUser") === null &&
   window.location.pathname !== "/login.html" &&
-  window.location.pathname !== "/don-onofre-tienda-amor/index.html"
+  window.location.pathname !== "/don-onofre-tienda-amor/login.html"
 ) {
   console.log(window.location);
   window.location.href = "index.html";
