@@ -90,8 +90,17 @@
         </div>
 
         <div class="order-2 md:order-3 flex items-center" id="nav-content">
+          <div id="panelAdmin" class="hidden">
+            <a
+              id="panelAdmin"
+              class="rounded-md bg-transparent font-medium text-pink-500 hover:underline"
+              href="adminPanel.html"
+            >
+              <span class="text-pink-500">Panel de Control</span>
+            </a>
+          </div>
           <a
-            class="inline-block no-underline pl-20 hover:text-black"
+            class="inline-block no-underline hover:text-black ml-2"
             href="deudasUsuario.html"
           >
             <svg
@@ -136,6 +145,22 @@
         </div>
       </div>
     </nav>
+
+    <div
+      role="alert"
+      class="alert bg-pink-300 text-black container mx-auto items-center flex-wrap pt-4 pb-5 mt-5"
+      id="adminAlert"
+    >
+      <i class="fa-solid fa-star"></i>
+      <span
+        >Bienvenido Don Onofre, puede entrar al panel de control
+        <a
+          href="adminPanel.html"
+          class="inline-block hover:text-black underline"
+          >aquí</a
+        >.</span
+      >
+    </div>
 
     <div class="relative mx-auto p-5" style="max-width: 1600px">
       <div class="carousel-inner relative overflow-hidden w-full">
@@ -899,5 +924,6 @@
     <script src="src/inicializarUsuarios.js"></script>
     <script src="src/app.js"></script>
     <script src="src/index.js"></script>
+    <script src="src/login.js"></script>
   </body>
 </html>

@@ -5,6 +5,15 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+if (localStorage.getItem("loggedUser") !== null) {
+  const loggedUser = localStorage.getItem("loggedUser");
+  const users = localStorage.getItem("users");
+  const usersParsed = JSON.parse(users);
+  if (usersParsed[loggedUser].role === "admin") {
+    document.getElementById("panelAdmin").classList.remove("hidden");
+  }
+}
+
 function createProductHTML(
   productoId,
   nombreProducto,

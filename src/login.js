@@ -3,10 +3,19 @@ console.log(window.location.pathname);
 if (
   localStorage.getItem("loggedUser") === null &&
   window.location.pathname !== "/login.html" &&
-  window.location.pathname !== "/don-onofre-tienda-amor/login.html"
+  window.location.pathname !== "/index.html" &&
+  window.location.pathname !== "/don-onofre-tienda-amor/login.html" &&
+  window.location.pathname !== "/don-onofre-tienda-amor/index.html"
 ) {
   console.log(window.location);
   window.location.href = "index.html";
+} else {
+  const loggedUser = localStorage.getItem("loggedUser");
+  const users = localStorage.getItem("users");
+  const usersParsed = JSON.parse(users);
+  if (usersParsed[loggedUser].role === "admin") {
+    document.getElementById("panelAdmin").classList.remove("hidden");
+  }
 }
 
 function getInfoUsuario() {
