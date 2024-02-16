@@ -1,5 +1,9 @@
 const PATH_API = "https://staging.adamspay.com/api/v1";
 const API_KEY = "ap-174d85421e89cba68d444271";
+const headers = {
+  apiKey: API_KEY,
+  "Content-Type": "application/json",
+};
 
 function createProductHTML(
   productoId,
@@ -265,5 +269,33 @@ function elegirContenido() {
     }
   }
 }
+
+function getDeudasOfUser() {
+  const deudas = localStorage.getItem("deudas");
+  const deudasParsed = JSON.parse(deudas);
+  const usuarioActual = localStorage.getItem("loggedUser");
+  const deudasUsuario = deudasParsed[usuarioActual];
+  for (let i in deudasUsuario) {
+    console.log(deudasUsuario[i]);
+    getDetallesDeuda(deudasUsuario[i]);
+  }
+}
+
+function getDetallesDeuda(deudaId) {
+  axios
+    .get(`${PATH_API}/debts/${deudaId}`, { headers: headers })
+    .then(function (response) {
+      if (response.data.debt.payStatus.status === "pending") {
+        document
+          .getElementById("deudasPendientesAlert")
+          .classList.remove("hidden");
+        const checkoutBtn = document.getElementById("checkoutBtn");
+        checkoutBtn.classList.add("btn-disabled");
+        checkoutBtn.disabled = true;
+      }
+    });
+}
+
+getDeudasOfUser();
 
 elegirContenido();
